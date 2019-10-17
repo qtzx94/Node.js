@@ -1,0 +1,23 @@
+{
+    "name": "hello-sequelize",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "keywords": [
+        "koa",
+        "async"
+    ],
+    "author": "qtzx94",
+    "license": "Apache-2.0",
+    "repository": {},
+    "dependencies": {
+        "koa": "2.0.0"
+    },
+    "devDependencies": {
+        "mocha": "3.0.2",
+        "supertest": "3.0.0"
+    }
+}
