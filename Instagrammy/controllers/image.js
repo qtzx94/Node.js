@@ -1,4 +1,7 @@
 // 图片处理相关控制器
+const fs = require('fs')
+const path = require('path')
+
 module.exports = {
   index: function (req, res) {
     // res.send('The image: index controller ' + req.params.image_id)
@@ -33,7 +36,23 @@ module.exports = {
     res.render('image', viewModel)
   },
   create: function (req, res) {
-    res.send('The image: create POST controller')
+    // res.send('The image: create POST controller')
+    var tempPath = req.file.path
+    var imgUrl = req.file.filename
+    var ext = path.extname(req.file.originalname).toLowerCase()
+    var targetPath = path.resolve('./public/upload/' + imgUrl + ext)
+
+    if (ext === '.png' || ext === '.jpg' || ext === '.jpeg' || ext === '.gif') {
+      fs.rename(tempPath, targetPath, function (err) {
+        if (err) throw err
+        res.redirect('/images/' + imgUrl)
+      })
+    } else {
+      fs.unlink(tempPath, function (err) {
+        if (err) throw err
+        res.json(500, { error: '只允许上传图片文件！' })
+      })
+    }
   },
   like: function (req, res) {
     res.send('The image: like POST controller')
