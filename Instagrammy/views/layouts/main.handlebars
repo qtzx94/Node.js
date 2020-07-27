@@ -1,0 +1,34 @@
+{{!-- 整个网站的布局模板（所有页面共享） --}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Instagrammy</title>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="page-header">
+    <div class="container">
+      <div class="col-md-6">
+        <h1><a href="/">Instagrammy</a></h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8">{{{body}}}</div>
+      <div class="col-sm-4">
+        {{> stats this }}
+        {{> popular this }}
+        {{> comments this }}
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
