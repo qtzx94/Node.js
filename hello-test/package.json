@@ -16,6 +16,6 @@
     "repository": {},
     "dependencies": {},
     "devDependencies": {
-        "mocha": "3.0.2"
+        "mocha": "3.5.3"
     }
 }
